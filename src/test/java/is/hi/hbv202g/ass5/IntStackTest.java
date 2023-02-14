@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class IntStackTest {
     private IntStack stack;
@@ -18,5 +19,14 @@ public class IntStackTest {
         assertFalse(stack.isFull());
     }
 
+    @Test
+    public void testFullStackIsFull(){
+        for (int i=0; i<stack.getCapacity(); i++){
+            stack.push(i);
+        }
+        assertTrue(stack.isFull());
+        stack.pop();
+        assertFalse(stack.isFull());
 
+    }
 }
