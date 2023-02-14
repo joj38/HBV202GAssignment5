@@ -1,17 +1,22 @@
 package is.hi.hbv202g.ass5;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertFalse;
+
 public class IntStackTest {
-private IntStack stack;
+    private IntStack stack;
+
+    @Before
+    public void createEmptyStack() {
+        stack = new IntStack();
+    }
+
     @Test
     public void testNewStackIsNotFull() {
-        stack= new IntStack();
-
         assertFalse(stack.isFull());
     }
+
 
 }
