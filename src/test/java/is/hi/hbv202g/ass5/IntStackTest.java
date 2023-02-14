@@ -19,15 +19,22 @@ public class IntStackTest {
     }
 
     @Test
-    public void testFullStackIsFull(){
+    public void testIsFullOnFullStack(){
         for (int i=0; i<stack.getCapacity(); i++){
             stack.push(i);
         }
         assertTrue(stack.isFull());
-        stack.pop();
-        assertFalse(stack.isFull());
 
     }
+
+    @Test
+    public void testIsFullOnNoneFullStack() {
+        for (int i = 0; i < stack.getCapacity()-1; i++) {
+            stack.push(i);
+        }
+        assertFalse(stack.isFull());
+    }
+
     @Test
     public void testPopReturnsPushedValue(){
         stack.push(5);
@@ -52,6 +59,15 @@ public class IntStackTest {
 
     }
 
+    @Test
+    public void testIsEmptyOnEmptyStack(){
+        assertTrue(stack.isEmpty());
+    }
 
+    @Test
+    public void testIsEmptyOnNoneEmptyStack(){
+        stack.push(11);
+        assertFalse(stack.isEmpty());
+    }
 
 }
